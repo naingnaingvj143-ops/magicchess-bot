@@ -19,10 +19,9 @@ def webhook():
         text = update['message'].get('text', '')
         
         if text == '/start':
-            bot.send_message(chat_id, "မဂ်လာပါ! Magic Chess GOGO ခန့်မှန်းရေး Bot မှကြိုဆိုပါတယ်။\n\n/predict - နောက်ယှဉ်ရမယ့်ပြိုင်ဘက်ကိုခန့်မှန်းပေးမယ်")
-        
+            bot.send_message(chat_id, "မဂ်လာပါ! Magic Chess GOGO ခန့်မှန်းရေး Bot မှကြိုဆိုပါတယ်။")
         elif text == '/predict':
-            bot.send_message(chat_id, "ကစားသမား ၇ ယောက်ရဲ့ နာမည်တွေကို ကော်မာခံပြီး ရိုက်ထည့်ပါ။\nဥပမာ: ZawGyi, MgMg, SuSu, KyawKyaw, AyeAye, PhyoPhyo, Thida")
+            bot.send_message(chat_id, "ကစားသမား ၇ ယောက်ရဲ့ နာမည်တွေကို ကော်မာခံပြီး ရိုက်ထည့်ပါ။")
     
     return "OK"
 
