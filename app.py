@@ -34,8 +34,8 @@ def process_prediction(message):
         # နာမည်များကို ခွဲထုတ်ပြီး list ထဲထည့်ခြင်း
         players = [name.strip() for name in message.text.split(',')]
         
-        if len(players) < 2:
-            bot.reply_to(message, "⚠️ နာမည်များကို ကော်မာ (,) ခံပြီး သေချာပြန်ထည့်ပေးပါ။")
+        if len(players) < 1:
+            bot.reply_to(message, "⚠️ နာမည်များကို သေချာပြန်ထည့်ပေးပါ။")
             return
             
         # ပထမဆုံးလူကနေ စတင်ရန် index 0 သတ်မှတ်
@@ -64,4 +64,10 @@ def show_prediction(chat_id, message_id, is_new=False):
     if is_new:
         bot.send_message(chat_id, text, reply_markup=markup)
     else:
-        bot.edit_message_text(chat_id=chat_id, message_id=message_id,
+        bot.edit_message_text(chat_id=chat_id, message_id=message_id, text=text, reply_markup=markup)
+
+# Next ခလုတ်နှိပ်သည့်အခါ နောက်တစ်ယောက်သို့ ပြောင်းရန်
+@bot.callback_query_handler(func=lambda call: call.data == "next_step")
+def callback_next(call):
+    chat_id = call.message.chat.id
+    if chat_id in user_
